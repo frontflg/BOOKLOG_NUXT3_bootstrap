@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Booklog {
+  isbn13      String    @id
+  isbn10      String?
+  bookname    String?
+  author      String?
+  publisher   String?
+  genre       String?
+  issuedate   DateTime? @default(now())
+  getdate     DateTime?
+  readdate    DateTime?
+  ownership   Boolean?  @default(false)
+  purchase    Int?
+  library     String?
+  overview    String?
+  impressions String?
+  state       String?
+  coverimg    String?
+}
